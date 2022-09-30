@@ -1,0 +1,34 @@
+html {
+  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.listContainer {
+  width: 100%;
+  .prev {
+    @include absolute-lt(-3rem, 50%);
+    translate: 0 -50%;
+    background-image: url('../../../public/images/icons/arrow-left-1.png');
+    background-size: 60%;
+    @extend %bg-contain;
+  }
+  .next {
+    @include absolute-rt(-3rem, 50%);
+    translate: 0 -50%;
+    background-image: url('../../../public/images/icons/arrow-right-2.png');
+    background-size: 60%;
+    @extend %bg-contain;
+  }
+  .arrow {
+    @include size(2rem, 2rem);
+    border-radius: 2rem;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 2px 4px 5px 2px rgba($color: #999, $alpha: 0.2);
+    transition: all 0.4s;
+    cursor: pointer;
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}

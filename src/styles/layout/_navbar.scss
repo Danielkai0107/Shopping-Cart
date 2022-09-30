@@ -1,0 +1,43 @@
+.navbar {
+  width: 100%;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 20;
+  &__logo {
+    @include font(2rem, 2rem, 600, 1px);
+    font-family: 'Alumni Sans', sans-serif;
+    span {
+      @include font(2rem, 2rem, 200, 1px);
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    li {
+      @extend %flex-center;
+      @include size(2rem, 2rem);
+      background-size: 60%;
+      @extend %bg-contain;
+      &:nth-child(1) {
+        background-image: url('../../../public/images/icons/search-normal.png');
+      }
+      &:nth-child(2) {
+        cursor: pointer;
+        background-image: url('../../../public/images/icons/shopping-bag.png');
+        .cartsDot {
+          @include size(0.4rem, 0.4rem);
+          @include absolute-rb(-2%, 15%);
+          border-radius: 1rem;
+          background-color: #d91e18;
+        }
+      }
+      &:nth-child(3) {
+        background-image: url('../../../public/images/icons/menu.png');
+      }
+    }
+  }
+}

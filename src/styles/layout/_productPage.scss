@@ -1,0 +1,267 @@
+.product {
+  @include size(100%, 100vh);
+  padding-top: 4rem;
+  @extend %flex-center;
+  flex-direction: column;
+  animation: fadeIn 1s forwards;
+}
+
+.product--font {
+  h1 {
+    @include font(6vh, 6.2vh, 600, 1px);
+  }
+  h2 {
+    @include font(5vh, 5.2vh, 500, 0px);
+  }
+  h3 {
+    @include font(2.2vh, 4vh, 600, 0px);
+  }
+  h4 {
+    @include font(4vh, 5vh, 200, 0px);
+  }
+  p {
+    @include font(2.2vh, 3.5vh, 400, 0px);
+  }
+}
+
+.product__alert {
+  @include size(200px, 1.8rem);
+  @extend %flex-center;
+  gap: 1rem;
+  @include absolute-lt(50%, 4rem);
+  translate: -50% 0;
+  z-index: 30;
+  background-color: rgba($color: #252525, $alpha: 0.6);
+  border-radius: 1.5rem;
+  @include blur(180%, 5px);
+
+  span {
+    color: #fff;
+    @include font(1rem, 1.8rem, 200, 1px);
+    &:nth-child(1) {
+      @include size(1rem, 1rem);
+      background-image: url('../../../public/images/icons/shopping-bag-w.png');
+      @extend %bg-contain;
+    }
+  }
+}
+
+.product__container {
+  @include size(100%, 70%);
+  display: flex;
+  .info {
+    width: 80%;
+    &__content {
+      @include size(50%, 100%);
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      gap: 2.5vh;
+      z-index: 10;
+      li {
+        h1 {
+          font-family: 'Alumni Sans', sans-serif;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /*省略第n行後的文字*/
+          -webkit-box-orient: vertical; /*設定元素是垂直布局*/
+        }
+        h2 {
+          margin-top: 1vh;
+          font-family: 'Alumni Sans', sans-serif;
+        }
+        p {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 4; /*省略第n行後的文字*/
+          -webkit-box-orient: vertical; /*設定元素是垂直布局*/
+        }
+      }
+      &__addBtn {
+        @include size(70%, 6vh);
+        @extend %flex-center;
+        background-color: #303030;
+        cursor: pointer;
+        transition: all 0.2s;
+        span {
+          @include font(2vh, 6vh, 500, 2px);
+          color: #fff;
+        }
+        &:active {
+          scale: 0.95;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    &__image {
+      @include size(50%, 100%);
+      @include absolute-rt(0, 0%);
+      z-index: 5;
+      @extend %flex-center;
+      padding-bottom: 1rem;
+      overflow: hidden;
+      img {
+        @include size(60vh, 60vh);
+        object-fit: contain;
+      }
+    }
+  }
+  .detail {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3vh;
+    li {
+      padding: 0 2rem;
+      h4 {
+        margin-top: 0.5rem;
+      }
+    }
+    &__rate {
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+    }
+    &__view {
+      figure {
+        margin-top: 1rem;
+        @extend %flex-center;
+        @include size(9vh, 9vh);
+        img {
+          @include size(8vh, 8vh);
+          object-fit: contain;
+        }
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.4s;
+        &:hover {
+          box-shadow: 2px 4px 5px 2px rgba($color: #999, $alpha: 0.2);
+        }
+      }
+    }
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      span {
+        @include size(6vh, 6vh);
+        @extend %flex-center;
+        border-radius: 6vh;
+        box-shadow: 2px 4px 5px 2px rgba($color: #999, $alpha: 0.2);
+        cursor: pointer;
+        transition: all 0.4s;
+        opacity: 0.7;
+        &:hover {
+          scale: 1.2;
+          opacity: 1;
+        }
+        &:nth-child(1) {
+          @include size(4vh, 4vh);
+          background-image: url('../../../public/images/icons/arrow-left-1.png');
+          background-size: 70%;
+          @extend %bg-contain;
+        }
+        &:nth-child(2) {
+          background-color: #fff;
+          background-image: url('../../../public/images/icons/arrow-right-2.png');
+          background-size: 60%;
+          @extend %bg-contain;
+        }
+      }
+    }
+  }
+}
+
+.product__list {
+  @include size(100%, 25%);
+  display: flex;
+  &__subscribe {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    ul {
+      width: 100%;
+      padding: 0 3rem;
+      display: flex;
+      gap: 1.5rem;
+      li {
+        @include size(5vh, 5vh);
+        border: 1px solid #888;
+        border-radius: 5vh;
+        transition: all 0.4s;
+        background-size: 60%;
+        @extend %bg-contain;
+        a {
+          display: flex;
+        }
+        &:hover {
+          scale: 1.2;
+        }
+        &:nth-child(1) {
+          border: none;
+          background-color: #444;
+          box-shadow: 2px 4px 10px 0px rgba($color: #999, $alpha: 0.2);
+          background-image: url('../../../public/images/icons/instagram-w.png');
+        }
+        &:nth-child(2) {
+          background-image: url('../../../public/images/icons/facebook.png');
+          opacity: 0.6;
+        }
+        &:nth-child(3) {
+          background-image: url('../../../public/images/icons/google.png');
+          opacity: 0.6;
+        }
+        &:nth-child(4) {
+          background-image: url('../../../public/images/icons/twitch.png');
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+  &__menu {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 6rem 1rem 3rem;
+  }
+}
+
+.similarItem {
+  height: 18vh;
+  display: flex;
+  padding-left: 0.5rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  opacity: 0.7;
+  &:hover {
+    scale: 1.05;
+    z-index: 50;
+    opacity: 1;
+  }
+  &__img {
+    @extend %flex-center;
+    @include size(35%, 100%);
+    img {
+      @include size(12vh, 12vh);
+      object-fit: contain;
+    }
+  }
+  &__info {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vh;
+    h3 {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 180px;
+      text-overflow: ellipsis;
+    }
+  }
+}

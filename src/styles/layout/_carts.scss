@@ -1,0 +1,189 @@
+.cartsContainer {
+  @include size(100%, 100vh);
+  @include absolute-lt(0%, 0%);
+  z-index: 15;
+  display: flex;
+  overflow: hidden;
+  animation: fadeIn 0.4s forwards;
+}
+
+.cartsCloseArea {
+  background-color: #252525;
+  opacity: 0.5;
+  @include size(60%, 100vh);
+}
+
+.carts {
+  @include size(40%, 100vh);
+  min-width: 400px;
+  z-index: 15;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4vh;
+  background-color: #fff;
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 3rem;
+    font-family: 'Alumni Sans', sans-serif;
+    h2 {
+      @include font(5vh, 5.2vh, 500, 0px);
+    }
+    li {
+      display: flex;
+      align-items: center;
+      opacity: 0.5;
+      transition: all 0.2s;
+      cursor: pointer;
+      gap: 0.5rem;
+      h3 {
+        @include font(3vh, 5vh, 500, 0px);
+      }
+      span {
+        @include size(3vh, 3vh);
+        @extend %bg-contain;
+        background-image: url('../../../public/images/icons/trash.png');
+        translate: 0 -1px;
+      }
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+  &__list {
+    width: 100%;
+    height: 65vh;
+    padding-right: 3rem;
+    overflow: auto;
+    @include scrollbar-style(2px, #ccc);
+  }
+  &__total {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      @include font(4.5vh, 4.7vh, 400, 1px);
+      font-family: 'Alumni Sans', sans-serif;
+    }
+    &__payBtn {
+      @include size(30%, 6vh);
+      @extend %flex-center;
+      background-color: #303030;
+      transition: all 0.4s;
+      span {
+        @include font(2vh, 6vh, 500, 2px);
+        color: #fff;
+      }
+      &:active {
+        scale: 0.9;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  opacity: 0.6;
+  transition: all 0.4s;
+  &:hover {
+    opacity: 1;
+  }
+  &__img {
+    @extend %flex-center;
+    @include size(35%, 100%);
+    overflow: hidden;
+    img {
+      @include size(12vh, 12vh);
+      object-fit: contain;
+      transition: all 0.4s;
+    }
+  }
+  &__info {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 3vh;
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        width: 90%;
+        height: 6vh;
+        @include font(2.2vh, 3vh, 400, 0px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /*省略第n行後的文字*/
+        -webkit-box-orient: vertical; /*設定元素是垂直布局*/
+        cursor: pointer;
+      }
+      span {
+        @include size(3.5vh, 3.5vh);
+        opacity: 0.5;
+        background-image: url('../../../public/images/icons/cancel.png');
+        @extend %bg-contain;
+        transition: all 0.2s;
+        cursor: pointer;
+        &:active {
+          scale: 1.1;
+          opacity: 1;
+        }
+      }
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      h4 {
+        @include font(4.5vh, 5vh, 500, 0px);
+        font-family: 'Alumni Sans', sans-serif;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        span {
+          @include size(3.5vh, 3.5vh);
+          opacity: 0.5;
+          @extend %bg-contain;
+          transition: all 0.2s;
+          cursor: pointer;
+          &:active {
+            scale: 1.1;
+            opacity: 1;
+          }
+          &:nth-child(1) {
+            background-image: url('../../../public/images/icons/minus-square.png');
+          }
+          &:nth-child(3) {
+            background-image: url('../../../public/images/icons/add-square.png');
+          }
+          &:nth-child(4) {
+            background-image: url('../../../public/images/icons/trash.png');
+          }
+        }
+        p {
+          width: 40px;
+          text-align: center;
+          @include font(3vh, 5vh, 300, 0px);
+        }
+      }
+    }
+  }
+}
